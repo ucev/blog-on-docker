@@ -1,0 +1,11 @@
+.DS_Store
+
+app/.editorconfig
+app/.eslint*
+app/.git*
+
+LICENSE
+README.md
+app/docs/*
+app/src/*
+app/build/*

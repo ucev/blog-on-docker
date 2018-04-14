@@ -1,0 +1,24 @@
+version: "3"
+services:
+        mysql:
+                build:
+                        context: .
+                        dockerfile: Dockerfile-mysql
+                restart: always
+                environment:
+                        MYSQL_ROOT_PASSWORD: MY_MYSQL_PASS
+                volumes:
+                        - MY_MYSQL_DIR:/var/lib/mysql
+        web:
+                build:
+                        context: .
+                        dockerfile: Dockerfile-web
+                ports:
+                        - "3000:3000"
+                depends_on:
+                        - mysql
+                volumes:
+                        - MY_IMAGE_DIR:/app/public/images/blog
+                        - MY_DOCS_DIR:/app/public/docs
+                        - MY_TEMP_DIR:/tmp
+                command: ["node", "wait-for-mysql.js", "npm", "start"]

@@ -1,0 +1,6 @@
+.DS_Store
+
+app*
+./Dockerfile*
+./docker-compose.yml
+./wait-for-mysql.js
