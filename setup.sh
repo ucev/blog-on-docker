@@ -25,6 +25,7 @@ printf "Enter mysql password:"
 stty -echo
 read pass < /dev/tty
 stty echo
+printf "\n"
 
 # create dirs to use as volumes
 mkdir -p $tmpdir
